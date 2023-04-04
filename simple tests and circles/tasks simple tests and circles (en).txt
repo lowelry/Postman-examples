@@ -1,4 +1,5 @@
-Based on requests from "simple requests", create a collection of similar requests, write tests perform a number of checks from the following list in accordance with the request:
+Based on requests from "simple requests", create a collection of similar requests, write tests perform a number of checks
+from the following list in accordance with the request:
 
 title: /user_info_3
 
@@ -28,7 +29,7 @@ title: /object_info_3
 
 title: /object_info_4
 
-1. Parse response body â json
+1. Parse response body in json
 2. Parse request
 3. Check "name" parameter in response is equal to the "name" parameter in request
 4. Check "age" parameter in response is equal to the "age" in request 
@@ -44,7 +45,7 @@ title: /object_info_4
 
 title: /user_info_2
 
-1. Parse response body â json
+1. Parse response body in json
 2. Parse request
 3. Check response has parameter "start_qa_salary"
 4. Check response has parameter "qa_salary_after_6_months"
