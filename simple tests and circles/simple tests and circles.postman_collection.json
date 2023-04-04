@@ -208,7 +208,7 @@
 					"script": {
 						"exec": [
 							"// cпарсить тело ответа в json\r",
-							"// parse response body в json\r",
+							"// parse response body in json\r",
 							"let rspns_bd = pm.response.json();\r",
 							"\r",
 							"// cпарсить запрос\r",
@@ -314,7 +314,7 @@
 					"script": {
 						"exec": [
 							"// cпарсить тело ответа в json\r",
-							"// parse response body в json\r",
+							"// parse response body in json\r",
 							"let rspns_bd = pm.response.json();\r",
 							"\r",
 							"// cпарсить запрос\r",
