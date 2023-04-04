@@ -1,0 +1,472 @@
+{
+	"info": {
+		"_postman_id": "7c4f727e-4401-4350-ad95-87a879263097",
+		"name": "simple tests and circles",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25547924"
+	},
+	"item": [
+		{
+			"name": "/user_info_3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// cпарсить тело ответа в json\r",
+							"// parse response body in json\r",
+							"let rspns_bd = pm.response.json();\r",
+							"\r",
+							"// проверить, что параметр \"name\" в ответе равен параметру \"name\" в запросе (\"name\" ввести вручную)\r",
+							"// check \"name\" parameter in response is equal to the \"name\" parameter in request (type \"name\" manually)\r",
+							"pm.test(\"test name (hands)\", function () {  \r",
+							"    pm.expect(\"Jake\").to.eql(rspns_bd.name);\r",
+							"});\r",
+							"\r",
+							"// проверить, что параметр \"age\" в ответе равен параметру \"age\" в запросе (\"age\" ввести вручную)\r",
+							"// check \"age\" parameter in response is equal to the \"age\" parameter in request (type \"age\" manually)\r",
+							"pm.test(\"test age (hands)\", function () {  \r",
+							"    pm.expect(25).to.eql(+rspns_bd.age);\r",
+							"});\r",
+							"\r",
+							"// проверить, что параметр \"salary\" в ответе равен параметру \"salary\" в запросе (\"salary\" ввести вручную)\r",
+							"// check \"salary\" parameter in response is equal to the \"salary\" parameter in request (type \"salary\" manually)\r",
+							"pm.test(\"test salary (hands)\", function () {  \r",
+							"    pm.expect(1500).to.eql(rspns_bd.salary);\r",
+							"});\r",
+							"\r",
+							"// cпарсить запрос\r",
+							"// parse request\r",
+							"let rqst_bd = pm.request\r",
+							"\r",
+							"// проверить, что праметр \"name\" в ответе равен параметру \"name\" в запросе\r",
+							"// check \"name\" parameter in response is equal to the \"name\" parameter in request\r",
+							"pm.test(\"test name\", function () {  \r",
+							"    pm.expect(rqst_bd.body.formdata.one(\"name\").value).to.eql(rspns_bd.name);\r",
+							"});\r",
+							"\r",
+							"// проверить, что параметр \"age\" в ответе равен параметру \"age\" в запросе\r",
+							"// check \"age\" parameter in response is equal to the \"age\" parameter in request  \r",
+							"pm.test(\"test age\", function () {  \r",
+							"    pm.expect(rqst_bd.body.formdata.one(\"age\").value).to.eql(rspns_bd.age);\r",
+							"});\r",
+							"\r",
+							"// проверить, что параметр \"salary\" в ответе равен параметру \"salary\" в запросе\r",
+							"// check \"salary\" parameter in response is equal to the \"salary\" parameter in request\r",
+							"pm.test(\"test salary\", function () {  \r",
+							"    pm.expect(+rqst_bd.body.formdata.one(\"salary\").value).to.eql(rspns_bd.salary);\r",
+							"});\r",
+							"\r",
+							"// вывести параметр \"family\" в консоль\r",
+							"// print \"family\" parameter in console\r",
+							"console.log(rspns_bd.family)\r",
+							"\r",
+							"// проверить, что параметр \"u_salary_1_5_year\" в ответе равен параметру \"salary\" из запроса, умноженному на 4\r",
+							"// check \"u_salary_1_5_year\" parameter in response is equal to the \"salary\" parameter in request multiply by 4\r",
+							"pm.test(\"test u_1_5_year_salary\", function () {  \r",
+							"    pm.expect((+rqst_bd.body.formdata.one(\"salary\").value)*4).to.eql(rspns_bd.family.u_salary_1_5_year);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "{{name}}",
+							"type": "text"
+						},
+						{
+							"key": "age",
+							"value": "{{age}}",
+							"type": "text"
+						},
+						{
+							"key": "salary",
+							"value": "{{salary}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{ip-port}}/user_info_3",
+					"host": [
+						"{{ip-port}}"
+					],
+					"path": [
+						"user_info_3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/object_info_3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// cпарсить тело ответа в json\r",
+							"// parse response body in json\r",
+							"let rspns_bd = pm.response.json();\r",
+							"\r",
+							"// cпарсить запрос\r",
+							"// parse request\r",
+							"let rqst_bd = pm.request\r",
+							"\r",
+							"// проверить, что параметр \"name\" в ответе равен параметру \"name\" в запросе\r",
+							"// check \"name\" parameter in response is equal to the \"name\" parameter in request\r",
+							"pm.test(\"test name\", function () {  \r",
+							"    pm.expect(rqst_bd.url.query.one(\"name\").value).to.eql(rspns_bd.name);\r",
+							"});\r",
+							"\r",
+							"// проверить, что параметр \"age\" в ответе равен параметру \"age\" в запросе\r",
+							"// check \"age\" parameter in response is equal to the \"age\" in request \r",
+							"pm.test(\"test age\", function () {  \r",
+							"    pm.expect(+rqst_bd.url.query.one(\"age\").value).to.eql(+rspns_bd.age);\r",
+							"});\r",
+							"\r",
+							"// проверить, что параметр \"salary\" в ответе равен параметру \"salary\" в запросе\r",
+							"// check \"salary\" parameter in response is equal to the \"salary\" parameter in request \r",
+							"pm.test(\"test salary\", function () {  \r",
+							"    pm.expect(+rqst_bd.url.query.one(\"salary\").value).to.eql(+rspns_bd.salary);\r",
+							"});\r",
+							"\r",
+							"// вывести в консоль параметр \"family\" из ответа\r",
+							"// print in console \"family\" parameter from response \r",
+							"console.log(rspns_bd.family)\r",
+							"\r",
+							"// проверить, что у параметра \"dog\" есть параметр \"name\"\r",
+							"// check \"dog\" parameter has parameter \"name\"\r",
+							"pm.test(\"test dog has name\", function () {  \r",
+							"    pm.expect(rspns_bd.family.pets.dog).to.have.property(\"name\");\r",
+							"});\r",
+							"\r",
+							"// проверить, что у параметра \"dog\" есть параметр \"age\"\r",
+							"// check \"dog\" parameter has parameter \"age\"\r",
+							"pm.test(\"test dog has age\", function () {  \r",
+							"    pm.expect(rspns_bd.family.pets.dog).to.have.property(\"age\");\r",
+							"});\r",
+							"\r",
+							"// проверить, что паметр \"name\" параметра \"dog\" имеет значение \"Luky\"\r",
+							"// check \"name\" parameter of the \"dog\" parameter is equal to \"Luky\"\r",
+							"pm.test(\"test dog has age\", function () {  \r",
+							"    pm.expect(\"Luky\").to.eql(rspns_bd.family.pets.dog.name);\r",
+							"});\r",
+							"\r",
+							"// проверить, что паметр \"age\" параметра \"dog\" имеет значение 4\r",
+							"// check \"age\" parameter of the \"dog\" parameter is equal to 4\r",
+							"pm.test(\"test dog has age\", function () {  \r",
+							"    pm.expect(4).to.eql(rspns_bd.family.pets.dog.age);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{ip-port}}/object_info_3?name={{name}}&age={{age}}&salary={{salary}}",
+					"host": [
+						"{{ip-port}}"
+					],
+					"path": [
+						"object_info_3"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "{{name}}"
+						},
+						{
+							"key": "age",
+							"value": "{{age}}"
+						},
+						{
+							"key": "salary",
+							"value": "{{salary}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/object_info_4",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// cпарсить тело ответа в json\r",
+							"// parse response body в json\r",
+							"let rspns_bd = pm.response.json();\r",
+							"\r",
+							"// cпарсить запрос\r",
+							"// parse request\r",
+							"let rqst_bd = pm.request\r",
+							"\r",
+							"// проверить, что параметр \"name\" в ответе равен параметру \"name\" в запросе\r",
+							"// check \"name\" parameter in response is equal to the \"name\" parameter in request\r",
+							"pm.test(\"test name\", function () {  \r",
+							"    pm.expect(rqst_bd.url.query.one(\"name\").value).to.eql(rspns_bd.name);\r",
+							"});\r",
+							"\r",
+							"// проверить, что параметр \"age\" в ответе равен параметру \"age\" в запросе\r",
+							"// check \"age\" parameter in response is equal to the \"age\" in request \r",
+							"pm.test(\"test age\", function () {  \r",
+							"    pm.expect(+rqst_bd.url.query.one(\"age\").value).to.eql(+rspns_bd.age);\r",
+							"});\r",
+							"\r",
+							"// вывести в консоль параметр \"salary\" из запроса\r",
+							"// print in console \"salary\" parameter from request\r",
+							"console.log(rqst_bd.url.query.one(\"salary\").value)\r",
+							"\r",
+							"// вывести в консоль параметр \"salary\" из ответа\r",
+							"// print in console \"salary\" parameter from response\r",
+							"console.log(rspns_bd.salary)\r",
+							"\r",
+							"// вывести в консоль 0-й элемент параметра salary из ответа\r",
+							"// print in console 0th element of \"salary\" parameter from request\r",
+							"console.log(rspns_bd.salary[0])\r",
+							"\r",
+							"// вывести в консоль 1-й элемент параметра salary из ответа\r",
+							"// print in console 1st element of \"salary\" parameter from request\r",
+							"console.log(rspns_bd.salary[1])\r",
+							"\r",
+							"// вывести в консоль 2-й элемент параметра salary из ответа\r",
+							"// print in console 2nd element of \"salary\" parameter from request\r",
+							"console.log(rspns_bd.salary[2])\r",
+							"\r",
+							"// проверить, что 0-й элемент параметра \"salary\" в ответе равен параметру \"salary\" в запросе\r",
+							"// check 0th element of \"salary\" parameter in response is equal to \"salary\" parameter in request\r",
+							"pm.test(\"test 0th salary element\", function () {  \r",
+							"    pm.expect(+rqst_bd.url.query.one(\"salary\").value).to.eql(rspns_bd.salary[0]);\r",
+							"});\r",
+							"\r",
+							"// проверить, что 1-й элемент параметра \"salary\" в ответе равен параметру \"salary\" в запросе, умноженному на 2\r",
+							"// check 1st element of \"salary\" parameter in response is equal to \"salary\" parameter in request multiply by 2\r",
+							"pm.test(\"test 1st salary element\", function () {  \r",
+							"    pm.expect(+rqst_bd.url.query.one(\"salary\").value*2).to.eql(+rspns_bd.salary[1]);\r",
+							"});\r",
+							"\r",
+							"// проверить, что 2-й элемент параметра \"salary\" в ответе равен параметру \"salary\" в запросе, умноженному на 3\r",
+							"// check 2nd element of \"salary\" parameter in response is equal to \"salary\" parameter in request multiply by 3\r",
+							"pm.test(\"test 2nd salary element\", function () {  \r",
+							"    pm.expect(+rqst_bd.url.query.one(\"salary\").value*3).to.eql(+rspns_bd.salary[2]);\r",
+							"});\r",
+							"\r",
+							"// написать цикл, который выводит в консоль по порядку элементы списка из параметра \"salary\" из ответа\r",
+							"// write a circle that prints in console elements of list from \"salary\" parameter from the response\r",
+							"let i = 0\r",
+							"while (i < 3) {\r",
+							"    console.log(rspns_bd.salary[i])\r",
+							"    i = i + 1\r",
+							"};"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{ip-port}}/object_info_4?name={{name}}&age={{age}}&salary={{salary}}",
+					"host": [
+						"{{ip-port}}"
+					],
+					"path": [
+						"object_info_4"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "{{name}}"
+						},
+						{
+							"key": "age",
+							"value": "{{age}}"
+						},
+						{
+							"key": "salary",
+							"value": "{{salary}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/user_info_2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// cпарсить тело ответа в json\r",
+							"// parse response body в json\r",
+							"let rspns_bd = pm.response.json();\r",
+							"\r",
+							"// cпарсить запрос\r",
+							"// parse request\r",
+							"let rqst_bd = pm.request\r",
+							"\r",
+							"// проверить, что в ответе есть параметр \"start_qa_salary\"\r",
+							"// check response has parameter \"start_qa_salary\"\r",
+							"pm.test(\"test response has start_qa_salary\", function () {  \r",
+							"    pm.expect(rspns_bd).to.have.property(\"start_qa_salary\");\r",
+							"});\r",
+							"\r",
+							"// проверить, что в ответе есть параметр \"qa_salary_after_6_months\"\r",
+							"// check response has parameter \"qa_salary_after_6_months\"\r",
+							"pm.test(\"test response has qa_salary_after_6_months\", function () {  \r",
+							"    pm.expect(rspns_bd).to.have.property(\"qa_salary_after_6_months\");\r",
+							"});\r",
+							"\r",
+							"// проверить, что в ответе есть параметр \"qa_salary_after_12_months\"\r",
+							"// check response has parameter \"qa_salary_after_12_months\"\r",
+							"pm.test(\"test response has qa_salary_after_12_months\", function () {  \r",
+							"    pm.expect(rspns_bd).to.have.property(\"qa_salary_after_12_months\");\r",
+							"});\r",
+							"\r",
+							"// проверить, что в ответе есть параметр \"qa_salary_after_1.5_year\"\r",
+							"// check response has parameter \"qa_salary_after_1.5_year\"\r",
+							"pm.test(\"test response has qa_salary_after_1.5_year\", function () {  \r",
+							"    pm.expect(rspns_bd).to.have.property(\"qa_salary_after_1.5_year\");\r",
+							"});\r",
+							"\r",
+							"// проверить, что в ответе есть параметр \"qa_salary_after_3.5_years\"\r",
+							"// check response has parameter \"qa_salary_after_3.5_years\"\r",
+							"pm.test(\"test response has qa_salary_after_3.5_years\", function () {  \r",
+							"    pm.expect(rspns_bd).to.have.property(\"qa_salary_after_3.5_years\");\r",
+							"});\r",
+							"\r",
+							"// проверить, что в ответе есть параметр \"person\"\r",
+							"// check response has parameter \"person\"\r",
+							"pm.test(\"test response has person\", function () {  \r",
+							"    pm.expect(rspns_bd).to.have.property(\"person\");\r",
+							"});\r",
+							"\r",
+							"// проверить, что параметр \"start_qa_salary\" в ответе равен параметру \"salary\" в запросе\r",
+							"// check \"start_qa_salary\" parameter in response is equal to \"salary\" parameter in request\r",
+							"pm.test(\"test start_qa_salary\", function() {\r",
+							"    pm.expect(+rqst_bd.body.formdata.one(\"salary\").value).to.eql(rspns_bd.start_qa_salary)\r",
+							"});\r",
+							"\r",
+							"// проверить, что параметр \"qa_salary_after_6_months\" в ответе равен параметру \"salary\" из запроса, умноженному на 2\r",
+							"// check \"qa_salary_after_6_months\" parameter in response is equal to \"salary\" parameter in request multiply by 2\r",
+							"pm.test(\"test qa_salary_after_6_months\", function() {\r",
+							"    pm.expect(+rqst_bd.body.formdata.one(\"salary\").value*2).to.eql(rspns_bd.qa_salary_after_6_months)\r",
+							"});\r",
+							"\r",
+							"// проверить, что параметр \"qa_salary_after_12_months\" в ответе равен параметру \"salary\" в запросе, умноженному на 2.7\r",
+							"// check \"qa_salary_after_12_months\" parameter in response is equal to \"salary\" parameter in request multiply by 2.7\r",
+							"pm.test(\"test qa_salary_after_12_months\", function() {\r",
+							"    pm.expect(+rqst_bd.body.formdata.one(\"salary\").value*2.7).to.eql(rspns_bd.qa_salary_after_12_months)\r",
+							"});\r",
+							"\r",
+							"// проверить, что параметр \"qa_salary_after_1.5_year\" в ответе равен параметру \"salary\" в запросе, умноженному на 3.3\r",
+							"// check \"qa_salary_after_1.5_year\" parameter in response is equal to \"salary\" parameter in request multiply by 3.3\r",
+							"pm.test(\"test qa_salary_after_1.5_year\", function() {\r",
+							"    pm.expect(+rqst_bd.body.formdata.one(\"salary\").value*3.3).to.eql(rspns_bd[\"qa_salary_after_1.5_year\"])\r",
+							"});\r",
+							"\r",
+							"// проверить, что параметр \"qa_salary_after_3.5_years\" в ответе равен параметру \"salary\" в запросе, умноженному на 3.8\r",
+							"// check \"qa_salary_after_3.5_years\" parameter in response is equal to \"salary\" parameter in request multiply by 3.8\r",
+							"pm.test(\"test qa_salary_after_3.5_years\", function() {\r",
+							"    pm.expect(+rqst_bd.body.formdata.one(\"salary\").value*3.8).to.eql(rspns_bd[\"qa_salary_after_3.5_years\"])\r",
+							"});\r",
+							"\r",
+							"// проверить, что 1-й элемент массива параметра \"u_name\" параметра \"person\" в ответе равен параметру \"salary\" в запросе\r",
+							"// check 1st element of \"u_name\" parameter array of \"person\" parameter in response is equal to \"salary\" parameter in request\r",
+							"pm.test(\"test u_name\", function() {\r",
+							"    pm.expect(+rqst_bd.body.formdata.one(\"salary\").value).to.eql(rspns_bd.person.u_name[1])\r",
+							"});\r",
+							"\r",
+							"// проверить, что параметр \"u_salary_5_years\" параметра \"person\" в ответе равен параметру \"salary\" в запросе, умноженному на 4.2\r",
+							"// check \"u_salary_5_years\" parameter of \"person\" parameter in response is equal to \"salary\" parameter in request multiplied by 4.2\r",
+							"pm.test(\"test u_salary_5_years\", function() {\r",
+							"    pm.expect(+rqst_bd.body.formdata.one(\"salary\").value*4.2).to.eql(rspns_bd.person.u_salary_5_years)\r",
+							"});\r",
+							"\r",
+							"// написать цикл, который выводит в консоль элементы списка из параметра \"person\" из ответа\r",
+							"// write a circle that prints in console elements of list from \"person\" parameter from response\r",
+							"for (key in rspns_bd.person) {\r",
+							"    console.log(key, rspns_bd.person[key])\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "{{name}}",
+							"type": "text"
+						},
+						{
+							"key": "age",
+							"value": "{{age}}",
+							"type": "text"
+						},
+						{
+							"key": "salary",
+							"value": "{{salary}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{ip-port}}/user_info_2",
+					"host": [
+						"{{ip-port}}"
+					],
+					"path": [
+						"user_info_2"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"// статус код 200",
+					"// status code is 200",
+					"pm.test(\"Status code is 200\", function () {",
+					"    pm.response.to.have.status(200);",
+					"});"
+				]
+			}
+		}
+	]
+}
