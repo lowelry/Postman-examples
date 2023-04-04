@@ -1,0 +1,62 @@
+Based on requests from "simple requests", create a collection of similar requests, write tests perform a number of checks from the following list in accordance with the request:
+
+title: /user_info_3
+
+1. Parse response body in json
+2. Check "name" parameter in response is equal to the "name" parameter in request (type "name" manually)
+3. Check "age" parameter in response is equal to the "age" parameter in request (type "age" manually)
+4. Check "salary" parameter in response is equal to the "salary" parameter in request (type "salary" manually)
+5. Parse request
+6. Check "name" parameter in response is equal to the "name" parameter in request
+7. Check "age" parameter in response is equal to the "age" parameter in request
+8. Check "salary" parameter in response is equal to the "salary" parameter in request
+9. Print "family" parameter in console
+10. Check "u_salary_1_5_year" parameter in response is equal to the "salary" parameter in request multiply by 4
+
+title: /object_info_3
+
+1. Parse response body in json
+2. Parse request
+3. Check "name" parameter in response is equal to the "name" parameter in request
+4. Check "age" parameter in response is equal to the "age" in request
+5. Check "salary" parameter in response is equal to the "salary" parameter in request
+6. Print in console "family" parameter from response
+7. Check "dog" parameter has parameter "name"
+8. Check "dog" parameter has parameter "age"
+9. Check "name" parameter of the "dog" parameter is equal to "Luky"
+10. Check "age" parameter of the "dog" parameter is equal to 4
+
+title: /object_info_4
+
+1. Parse response body â json
+2. Parse request
+3. Check "name" parameter in response is equal to the "name" parameter in request
+4. Check "age" parameter in response is equal to the "age" in request 
+5. Print in console "salary" parameter from request
+6. Print in console "salary" parameter from response
+7. Print in console 0th element of "salary" parameter from request
+8. Print in console 1st element of "salary" parameter from request
+9. Print in console 2nd element of "salary" parameter from request
+10. Check 0th element of "salary" parameter in response is equal to "salary" parameter in request
+11. Check 1st element of "salary" parameter in response is equal to "salary" parameter in request multiply by 2
+12. Check 2nd element of "salary" parameter in response is equal to "salary" parameter in request multiply by 3
+13. Write a circle that prints in console elements of list from "salary" parameter from the response
+
+title: /user_info_2
+
+1. Parse response body â json
+2. Parse request
+3. Check response has parameter "start_qa_salary"
+4. Check response has parameter "qa_salary_after_6_months"
+5. Check response has parameter "qa_salary_after_12_months"
+6. Check response has parameter "qa_salary_after_1.5_year"
+7. Check response has parameter "qa_salary_after_3.5_years"
+8. Check response has parameter "person"
+9. Check "start_qa_salary" parameter in response is equal to "salary" parameter in request
+10. Check "qa_salary_after_6_months" parameter in response is equal to "salary" parameter in request multiply by 2
+11. Check "qa_salary_after_12_months" parameter in response is equal to "salary" parameter in request multiply by 2.7
+12. Check "qa_salary_after_1.5_year" parameter in response is equal to "salary" parameter in request multiply by 3.3
+13. Check "qa_salary_after_3.5_years" parameter in response is equal to "salary" parameter in request multiply by 3.8
+14. Check 1st element of "u_name" parameter array of "person" parameter in response is equal to "salary" parameter in request
+15. Check "u_salary_5_years" parameter of "person" parameter in response is equal to "salary" parameter in request multiplied by 4.2
+16. Write a circle that prints in console elements of list from "person" parameter from response
