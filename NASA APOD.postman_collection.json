@@ -13,7 +13,7 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"// предусловия: необходимо зарегистрироваться на сайте https://api.nasa.gov/ и получить уникальный ключ для доспута к сервису, после чего указать значение ключа как значение переменной \"api_key\" в данном запросе\r",
+							"// Предусловия: необходимо зарегистрироваться на сайте https://api.nasa.gov/ и получить уникальный ключ для доспута к сервису, после чего указать значение ключа как значение переменной \"api_key\" в данном запросе\r",
 							"// Preconditions: need to register on the site https://api.nasa.gov/ and get unique key to access the service, then specify the value of this key as the value of \"api_key\" variable in this request\r",
 							"\r",
 							"// проверить, что параметры \"hdurl\" и \"url\" не пустые\r",
