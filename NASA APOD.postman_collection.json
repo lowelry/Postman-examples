@@ -1,0 +1,63 @@
+{
+	"info": {
+		"_postman_id": "39d0522e-7f8d-4483-91e9-0bdb821ac3d3",
+		"name": "NASA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25547924"
+	},
+	"item": [
+		{
+			"name": "APOD",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// предусловия: необходимо зарегистрироваться на сайте https://api.nasa.gov/ и получить уникальный ключ для доспута к сервису, после чего указать значение ключа как значение переменной \"api_key\" в данном запросе\r",
+							"// Preconditions: need to register on the site https://api.nasa.gov/ and get unique key to access the service, then specify the value of this key as the value of \"api_key\" variable in this request\r",
+							"\r",
+							"// проверить, что параметры \"hdurl\" и \"url\" не пустые\r",
+							"// check \"hdurl\" and \"url\" parameters are not empty\r",
+							"pm.test(\"hdurl not empty\", function () {\r",
+							"    pm.expect(pm.response.json().hdurl).to.not.be.empty;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"url not empty\", function () {\r",
+							"    pm.expect(pm.response.json().url).to.not.be.empty;\r",
+							"});\r",
+							"\r",
+							"// вывести в консоль url фотографии Astronomy Picture of the Day (APOD)\r",
+							"// print url of Astronomy Picture of the Day (APOD) photo to console\r",
+							"console.log(pm.response.json().url)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.nasa.gov/planetary/apod?api_key=",
+					"protocol": "https",
+					"host": [
+						"api",
+						"nasa",
+						"gov"
+					],
+					"path": [
+						"planetary",
+						"apod"
+					],
+					"query": [
+						{
+							"key": "api_key",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
