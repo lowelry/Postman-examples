@@ -1,9 +1,9 @@
-Создать запросы в Postman, обращающиеся к серверу со следующими данными:
+РЎРѕР·РґР°С‚СЊ Р·Р°РїСЂРѕСЃС‹ РІ Postman, РѕР±СЂР°С‰Р°СЋС‰РёРµСЃСЏ Рє СЃРµСЂРІРµСЂСѓ СЃРѕ СЃР»РµРґСѓСЋС‰РёРјРё РґР°РЅРЅС‹РјРё:
 	protocol - http
 	IP - 162.55.220.72
 	port - 5005
 
-Запросы должны затрагивать следующие эндпоинты, содержать валидные данные:
+Р—Р°РїСЂРѕСЃС‹ РґРѕР»Р¶РЅС‹ Р·Р°С‚СЂР°РіРёРІР°С‚СЊ СЃР»РµРґСѓСЋС‰РёРµ СЌРЅРґРїРѕРёРЅС‚С‹, СЃРѕРґРµСЂР¶Р°С‚СЊ РІР°Р»РёРґРЅС‹Рµ РґР°РЅРЅС‹Рµ:
 
 1.
 title: /get_method
@@ -13,7 +13,7 @@ params:
 	name: str
 	age: int
 
-Структура данных в ответе:
+РЎС‚СЂСѓРєС‚СѓСЂР° РґР°РЅРЅС‹С… РІ РѕС‚РІРµС‚Рµ:
 [
 	"str",
 	"str"
@@ -28,24 +28,24 @@ formdata:
 	age: int
 	salary: int
 
-Структура данных в ответе:
+РЎС‚СЂСѓРєС‚СѓСЂР° РґР°РЅРЅС‹С… РІ РѕС‚РІРµС‚Рµ:
 {
 	'name': name,
 	'age': age,
 	'salary': salary,
 	'family': {
 			'children':[
-						[
-							'Alex',
-							24
-						],
-						[
-							'Kate',
-							12
-						]
+					[
+						'Alex',
+						24
 					],
+					[
+						'Kate',
+						12
+					]
+				    ],
 			'u_salary_1_5_year': salary * 4
-			}
+		   }
 }
 
 3.
@@ -57,7 +57,7 @@ params:
 	age: int
 	weight: int
 
-Структура данных в ответе:
+РЎС‚СЂСѓРєС‚СѓСЂР° РґР°РЅРЅС‹С… РІ РѕС‚РІРµС‚Рµ:
 {
 	'name': name,
 	'age': age,
@@ -74,7 +74,7 @@ params:
 	age: int
 	salary: int
 
-Структура данных в ответе:
+РЎС‚СЂСѓРєС‚СѓСЂР° РґР°РЅРЅС‹С… РІ РѕС‚РІРµС‚Рµ:
 {
 	'start_qa_salary': salary,
 	'qa_salary_after_6_months': salary * 2,
@@ -83,13 +83,13 @@ params:
 	'qa_salary_after_3.5_years': salary * 3.8,
 	'person': {
 			'u_name': [
-						user_name,
-						salary,
-						age
-					],
+					user_name,
+					salary,
+					age
+				  ],
 			'u_age': age,
 			'u_salary_5_years': salary * 4.2
-			}
+		  }
 }
 
 5.
@@ -101,34 +101,34 @@ params:
 	age: int
 	salary: int
 
-Структура данных в ответе:
+РЎС‚СЂСѓРєС‚СѓСЂР° РґР°РЅРЅС‹С… РІ РѕС‚РІРµС‚Рµ:
 {
 	'name': name,
 	'age': age,
 	'salary': salary,
 	'family': {
 			'children': [
-						[
-							'Alex',
-							24
-						],
-						[
-							'Kate',
-							12
-						]
-					 ],
+					[
+						'Alex',
+						24
+					],
+					[
+						'Kate',
+						12
+					]
+			            ],
 			'pets': {
 					'cat':{
-							'name':'Sunny',
-							'age': 3
-						 },
+						'name':'Sunny',
+						'age': 3
+					      },
 					'dog':{
-							'name':'Luky',                                  
-							'age': 4
-						 }
-				   },
+						'name':'Luky',                                  
+						'age': 4
+					      }
+				 },
 			'u_salary_1_5_year': salary * 4
-			}
+		   }
 }
 
 6.
@@ -140,15 +140,15 @@ params:
 	age: int
 	salary: int
 
-Структура данных в ответе:
+РЎС‚СЂСѓРєС‚СѓСЂР° РґР°РЅРЅС‹С… РІ РѕС‚РІРµС‚Рµ:
 {
 	'name': name,
 	'age': int(age),
 	'salary': [
-				salary,
-				str(salary * 2),
-				str(salary * 3)
-			]
+			salary,
+			str(salary * 2),
+			str(salary * 3)
+		  ]
 }
 
 7.
@@ -160,7 +160,7 @@ formdata:
 	age: int
 	salary: int
 
-Структура данных в ответе:
+РЎС‚СЂСѓРєС‚СѓСЂР° РґР°РЅРЅС‹С… РІ РѕС‚РІРµС‚Рµ:
 {
 	'start_qa_salary': salary,
 	'qa_salary_after_6_months': salary * 2,
@@ -169,11 +169,11 @@ formdata:
 	'qa_salary_after_3.5_years': salary * 3.8,
 	'person': {
 			'u_name': [
-						user_name,
-						salary,
-							age
-					],
+					user_name,
+					salary,
+					age
+				  ],
 			'u_age': age,
 			'u_salary_5_years': salary * 4.2
-			}
+		   }
 }
